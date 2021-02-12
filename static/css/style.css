@@ -1,0 +1,61 @@
+header {
+    text-align: center;
+}
+body {
+    background-color: #272727;
+    color: aliceblue;
+    font-family: "Playfair Display";
+}
+
+#shop_day_form {
+    text-align: center;
+    padding: 10px;
+    font-size: 30px;
+}
+
+input[type=number] {
+    padding: 10px;
+    margin-bottom: 10px; /* Add top and bottom margin. */
+    box-shadow: 0 0 15px 4px rgba(0,0,0,0.06);
+    /*border-radius:10px;*/
+    font-family:inherit;
+    font-size: medium;
+    font-weight: bold;
+    height: 10px;
+    width: 100px;
+}
+
+input[type=text] {
+  padding: 10px;
+  margin-bottom: 10px; /* Add top and bottom margin. */
+  box-shadow: 0 0 15px 4px rgba(0,0,0,0.06);
+  /*border-radius:10px;*/
+  font-family:inherit;
+  font-size: medium;
+  font-weight: bold;
+  height: 10px;
+  width: 100px;
+}
+
+#submit {
+  background: #0066A2;
+  color: aliceblue;
+  border-style: outset;
+  border-color: #0066A2;
+  height: 50px;
+  width: 100px;
+  font: bold 15px;
+  font-family: "Playfair Display";
+  }
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}

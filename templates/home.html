@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <title>
+            Gilroy Costco Food Court Shop Helper
+        </title>
+        
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/v4-shims.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Playfair+Display" />
+        <link rel="stylesheet" href="/static/css/style.css">
+        
+    </head>
+
+    <body>
+
+        <header>
+            <h1>Gilroy Costco Food Court Shop Helper</h1>
+        </header>
+
+        <div id="total_days"></div>
+
+        <p>
+            <form method="POST">
+
+                <div id="label_questions"></div>
+
+                <script>
+                    // Get the number of shop days the user inputted from local storage, remove any quotations, and convert to
+                    // int.
+                    var x = localStorage.getItem('data');
+                    x = x.replace(/^"(.+(?="$))"$/, '$1');
+                    x = parseInt(x);
+
+                    let questions = ['How many pizzas were sold until next shop day? ', 'How much of feSmoothie were sold? ', 'How much of kioskSmoothie were sold? ', 'How much of feColdBrew were sold? ', 'How much of kioskColdBrew were sold? ', 'How much of feColdBrewLatte were sold? ', 'How much of kioskColdBrewLatte were sold? ', 'How much of feSoda were sold? ', 'How much of kioskSoda were sold? ', 'How many ice creams were sold? ', 'How many hot dogs were sold? ']
+                    let inputNames = ['<input type="number" name="pizza_boxes', '<input type="number" name="fe_smoothie', '<input type="number" name="kiosk_smoothie', '<input type="number" name="fe_coldbrew', '<input type="number" name="kiosk_coldbrew', '<input type="number" name="fe_coldbrew_latte', '<input type="number" name="kiosk_coldbrew_latte', '<input type="number" name="fe_soda', '<input type="number" name="kiosk_soda', '<input type="number" name="ice_cream_sales', '<input type="number" name="hot_dog_sales']
+                    
+                    $("#label_questions").html('');
+                    $("#inputs").html('');
+                    for(i=0; i < questions.length; i++) {
+                        $("#label_questions").append('<label>' + questions[i] + '</label>');
+                        for(j=1; j < x+1; j++) {
+                            $("#label_questions").append(inputNames[i] + j + '" min="0" placeholder="Day ' + j + '">');
+                        }
+
+                        $("#label_questions").append('<br>');
+                        if (i == 0) {
+                            $("#label_questions").append('<p> You will need {{ .PizzaSold }} bundle of pizza boxes. </p>');
+                        }
+                        // Check if the loop is on question 5 if so let the user know how many sip lids they need.
+                        else if (i == 6) {
+                            $("#label_questions").append('<p> You will need {{ .SipLidsToBuy }} sip lids. </p>');
+                        }
+                        // If the loop is in on the last question let the user know how many ice cream lids and 16 oz cups they need.
+                        else if (i == 10) {
+                            $("#label_questions").append('<p> You will need {{ .IceCreamLidsToBuy }} ice cream lids and {{ .SixteenOunceCupsToBuy }} 16 oz  cups for ice cream, smoothie and cold brew. </p>');
+                        }
+
+                    }
+                </script>
+                <p> You will need {{ .PaperStrawsToBuy }} packages of paper straws.</p>
+                <button type="submit" id="submit"> Submit </button>
+            </form>
+        </p>
+
+        <script>
+            if (localStorage.getItem('data') != null) {
+                //document.getElementById("total_days").innerHTML = localStorage.getItem('data');
+                var x = localStorage.getItem('data');
+                // Need to remove the extra double quotes to be able to parse to int
+                // https://stackoverflow.com/questions/19156148/i-want-to-remove-double-quotes-from-a-string/43220059
+                x = x.replace(/^"(.+(?="$))"$/, '$1');
+                x = parseInt(x);
+                console.log(x);
+                document.getElementById("total_days").innerHTML = `Shopping for ${x} days.`;
+            }
+
+            function addInputs() {
+                var x = localStorage.getItem('data');
+                x = x.replace(/^"(.+(?="$))"$/, '$1');
+                x = parseInt(x);
+                
+                if(x == 3) {
+                    alert("shopping for 3 days");
+                    console.log(x);
+                }
+                console.log(12212);
+            }
+
+            
+            
+        </script>
+    </body>
+</html>
