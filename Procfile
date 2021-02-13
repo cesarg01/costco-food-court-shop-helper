@@ -1,1 +1,1 @@
-web: ./shop
+web: costco-food-court-shop-helper
