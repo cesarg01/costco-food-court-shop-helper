@@ -1,1 +1,1 @@
-web: shop
+web: ./shop

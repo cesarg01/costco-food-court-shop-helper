@@ -35,7 +35,7 @@
                     x = parseInt(x);
 
                     let questions = ['How many pizzas were sold until next shop day? ', 'How much of feSmoothie were sold? ', 'How much of kioskSmoothie were sold? ', 'How much of feColdBrew were sold? ', 'How much of kioskColdBrew were sold? ', 'How much of feColdBrewLatte were sold? ', 'How much of kioskColdBrewLatte were sold? ', 'How much of feSoda were sold? ', 'How much of kioskSoda were sold? ', 'How many ice creams were sold? ', 'How many hot dogs were sold? ']
-                    let inputNames = ['<input type="number" name="pizza_boxes', '<input type="number" name="fe_smoothie', '<input type="number" name="kiosk_smoothie', '<input type="number" name="fe_coldbrew', '<input type="number" name="kiosk_coldbrew', '<input type="number" name="fe_coldbrew_latte', '<input type="number" name="kiosk_coldbrew_latte', '<input type="number" name="fe_soda', '<input type="number" name="kiosk_soda', '<input type="number" name="ice_cream_sales', '<input type="number" name="hot_dog_sales']
+                    let inputNames = ['<input type="number" name="pizza_boxes', '<input type="number" name="fe_smoothie', '<input type="number" name="kiosk_smoothie', '<input type="number" name="fe_coldbrew', '<input type="number" name="kiosk_coldbrew', '<input type="number" name="fe_coldbrew_latte', '<input type="number" name="kiosk_coldbrew_latte', '<input type="number" name="fe_soda', '<input type="number" name="kiosk_soda', '<input type="number" name="ice_cream_sales', '<input type="number" name="hotdog_sales']
                     
                     $("#label_questions").html('');
                     $("#inputs").html('');
@@ -60,7 +60,7 @@
 
                     }
                 </script>
-                <p> You will need {{ .PaperStrawsToBuy }} packages of paper straws.</p>
+                <p> You will need {{ .SodaCupsToBuy}} soda cups, {{ .SodaLidsToBuy}} soda lids, and {{ .PaperStrawsToBuy }} packages of paper straws.</p>
                 <button type="submit" id="submit"> Submit </button>
             </form>
         </p>
