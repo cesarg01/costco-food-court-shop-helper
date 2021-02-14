@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"log"
 	"net/http"
+	"os"
 	"text/template"
 )
 
@@ -318,5 +319,7 @@ func main() {
 	http.HandleFunc("/", IndexPage)
 	http.HandleFunc("/home", HomePage)
 
-	log.Fatal(http.ListenAndServe(":8080", nil))
+	//log.Fatal(http.ListenAndServe(":8080", nil))
+
+	log.Fatal(http.ListenAndServe(":"+os.Getenv("PORT"), nil))
 }
