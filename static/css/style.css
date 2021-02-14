@@ -59,3 +59,13 @@ input::-webkit-inner-spin-button {
 input[type=number] {
   -moz-appearance: textfield;
 }
+
+/* Pseudo Classes */
+a:visited {
+  color: white;
+  
+}
+
+a {
+  color: inherit;
+}
