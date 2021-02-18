@@ -8,6 +8,7 @@ import (
 	"text/template"
 )
 
+// Steel ...
 type Steel struct {
 	SmoothieBase struct {
 		Quantity     int `json:"quantity"`
@@ -321,5 +322,6 @@ func main() {
 
 	//log.Fatal(http.ListenAndServe(":8080", nil))
 
+	// Heroku decicides the port number on runtime so we cannot specify port number 8080.
 	log.Fatal(http.ListenAndServe(":"+os.Getenv("PORT"), nil))
 }

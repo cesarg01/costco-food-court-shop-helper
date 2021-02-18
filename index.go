@@ -5,10 +5,12 @@ import (
 	"strconv"
 )
 
+// ShopDays struct containing the number of shop days.
 type ShopDays struct {
 	NumberOfShopDays int
 }
 
+// IndexPage ...
 func IndexPage(w http.ResponseWriter, r *http.Request) {
 
 	// Convert string to number for each form value from index.html

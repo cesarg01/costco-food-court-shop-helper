@@ -1,11 +1,11 @@
 package main
 
 import (
-	"fmt"
 	"net/http"
 	"strconv"
 )
 
+// ShopDetails contains all the information regarding how much each product sold and what supplies are needed.
 type ShopDetails struct {
 	PizzaSold              int
 	FeSmoothieSold         int
@@ -26,7 +26,7 @@ type ShopDetails struct {
 	PaperStrawsToBuy       int
 }
 
-// IndexPage ...
+// HomePage ...
 func HomePage(w http.ResponseWriter, r *http.Request) {
 	//var pizzaSold string
 	//if r.Method != http.MethodPost {
@@ -160,7 +160,6 @@ func HomePage(w http.ResponseWriter, r *http.Request) {
 	pizzaBoxesNeeded := getBoxes(steel, projectedPizzaBoxTotal)
 	// Get the amount of smoothie and cold brew sales
 	var smoothieSales int = dailyKioskSmoothieTotal + dailyFeSmoothieTotal
-	fmt.Printf("This is the total number of smoothies", smoothieSales)
 	smoothieSales = int((.20 * float64(smoothieSales))) + smoothieSales
 	var coldbrewSales int = dailyFeColdBrewTotal + dailyKioskColdBrewTotal + dailyFeColdBrewLatteTotal + dailyKioskColdBrewLatteTotal
 	coldbrewSales = int((.20 * float64(coldbrewSales))) + coldbrewSales
@@ -174,11 +173,11 @@ func HomePage(w http.ResponseWriter, r *http.Request) {
 		sipLidsNeeded++
 	}
 
+	// Get hot dog and soda sales.
 	var hotdogSales int = int((.20 * float64(dailyHotDogTotal))) + dailyHotDogTotal
 
 	var sodaLidsTotal int = dailyFeSodaTotal + dailyKioskSodaTotal
 	sodaLidsTotal = int((.20 * float64(sodaLidsTotal))) + sodaLidsTotal + hotdogSales
-	fmt.Printf("Soda lids", sodaLidsTotal)
 	var sodaCupsTotal int = sodaLidsTotal
 
 	var sodaLidsNeeded int = sodaLidsTotal / steel.PepsiLids.Sleeve
