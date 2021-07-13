@@ -51,8 +51,8 @@ func HomePage(w http.ResponseWriter, r *http.Request) {
 	steel.One6OzCups.Sleeves = 20
 	// Paper Straws
 	steel.PaperStraws.Quantity = 2000
-	steel.PaperStraws.Package = 250
-	steel.PaperStraws.Packages = 8
+	steel.PaperStraws.Package = 500
+	steel.PaperStraws.Packages = 4
 	// Sip Lids
 	steel.SipLids.Quantity = 1000
 	steel.SipLids.Sleeve = 100
@@ -62,9 +62,9 @@ func HomePage(w http.ResponseWriter, r *http.Request) {
 	steel.IceCreamLids.Sleeve = 100
 	steel.IceCreamLids.Sleeves = 10
 	// Pepsi Lids
-	steel.PepsiLids.Quantity = 2000
+	steel.PepsiLids.Quantity = 1000
 	steel.PepsiLids.Sleeve = 100
-	steel.PepsiLids.Sleeves = 20
+	steel.PepsiLids.Sleeves = 10
 	// Chicken Bake Bags
 	steel.ChickenBakeBags.Quantity = 1000
 	// Pizza Boxes
